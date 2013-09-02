@@ -1,5 +1,15 @@
 jQuery mini-editable plugin demo
 ================================
+
+What it is
+----------
+A minimal demonstration of a jQuery plugin in the making, that adds a .makeEditable() which
+* adds contenteditable attribute to the selection
+* optionally adds a global callback function for all editable elements.
+* adds a custom _editableChanged_ event that can be subscribed to.
+
+How to run
+----------
 1. clone git repository.
 2. cd [clone directory]
 3. npm install
