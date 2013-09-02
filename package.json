@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "jquery-mini-editable-demo",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,6 +8,18 @@
   "dependencies": {
     "express": "3.3.7",
     "hjs": "*",
-    "reload": "*"
-  }
+    "reload": "0.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/larsw/jquery-mini-editable-demo.git"
+  },
+  "keywords": [
+    "jQuery",
+    "plugin",
+    "contenteditable",
+    "editable"
+  ],
+  "author": "Lars Wilhelmsen <lars@sral.org>",
+  "license": "MIT"
 }
