@@ -8,7 +8,9 @@ jQuery mini-editable plugin demo
 6. open the javascript console in your browser to see logged changes.
 
 Optional: instead of 4:
-4.1 npm install -g supervisor
-4.2 supervisor -e 'js|hjs' node app.js
-5. as above
+-----------------------
+1. npm install -g supervisor
+2. supervisor -e 'js|hjs' node app.js
+3. see 5. above
+
 Edit and save views/edit.hjs and/or javascript files and the browser will automatically be refreshed.
