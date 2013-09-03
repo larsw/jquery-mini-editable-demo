@@ -31,7 +31,7 @@
     return this._target.id + " changed: " + this._oldValue + " -> " + this._newValue;
   };
 
-  $.fn.makeEditable = function (changedCallback) {
+  $.fn.enableEditable = function (changedCallback) {
     this.attr('contenteditable', 'true');
     this.on('focusin', function (event) {
       currentEditableContent = $(this).html();
@@ -50,4 +50,9 @@
       }
     });
   };
+
+  $.fn.disableEditable = function () {
+    this.removeAttr('contenteditable');
+  };
+
 }(jQuery));

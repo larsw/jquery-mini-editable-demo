@@ -10,8 +10,10 @@
     <script src="/javascripts/jquery.mini-editable.js"></script>   
     <script src="/reload/reload.js"></script>
   </head>
+
   <body>
     <h1 id="main-title">{{ title }}</h1>
+    <h2>Test</h2>
     <div class="container">
       <table class="table">
         <caption>An example table</caption>
@@ -41,33 +43,48 @@
         </tbody>
       </table>
     </div>
+    <hr />
+    <div style="text-align: center">
+      <input type="checkbox" id="editableCheckbox" />
+      <label for="editableCheckbox">Make editable</label>
+    </div>
     <script>
 
-      $(document).ready(function() {
-        $.each($('h1,td,th'), function() {
-          $(this).makeEditable(function (event) {
+      $('#editableCheckbox').click(function() {
+        if ($(this).is(':checked')) {
+          $.each($('h1,td,th'), function() {
+            $(this).enableEditable(function (event) {
 
-            $(event.target()).animate( { backgroundColor: 'olive'}, 1000);
+              $(event.target()).css('background-color', '#ffffe0');
+              //$(event.target()).animate( { backgroundColor: 'olive'}, 1000);
 
-            console.log(event.toString());
+              console.log(event.toString());
 
-            var url = '/editable-changed?id=' + event.id();
-            $.ajax(url, 
-              {
-                type: 'POST',
-                data: {
-                    "new": event.newValue(),
-                    "old": event.oldValue()
-                  },
-                  error: function (xhr, status, error) {
-
-                  },
-                  success: function (data, status, xhr) {
-
-                  }
-              });
+              var url = '/editable-changed?id=' + event.id();
+              $.ajax(url, 
+                {
+                  type: 'POST',
+                  data: {
+                      "new": event.newValue(),
+                      "old": event.oldValue()
+                    },
+                    error: function (xhr, status, error) {
+                      $(event.target()).css('background-color', '#ff6347');
+                    },
+                    success: function (data, status, xhr) {
+                      $(event.target()).css('background-color', '#98fb98');
+                      setTimeout(function () {
+                        $(event.target()).animate( { backgroundColor: 'white'}, 1000);
+                      }, 1000);
+                    }
+                });
+            });
+          });          
+        } else {
+          $.each($('h1,td,th'), function() {
+            $(this).disableEditable();
           });
-        });
+        }
       });
     </script>
   </body>
